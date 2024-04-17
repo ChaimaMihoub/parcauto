@@ -1,0 +1,143 @@
+{
+  "8dc193ba-d2fb-4884-a3c0-7f4ddb62f7a4": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete"
+    ],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "windowsAuthentication",
+      "displayName": "SQL Server",
+      "gatewayObjectIdHint": "53e0f4a7-fa7b-455d-893c-0b48633b7e3e",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1683/1.0.1683.3685/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "isOnPremiseConnection": true,
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "runtimePolicyName": "806fb842-da4b-4172-b2e1-749f8143705d",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/19d71c61f23a40a1bc9a62d5bfdd780b",
+      "xrmConnectionReferenceLogicalName": "cr0f7_sharedsql_f8aa0"
+    },
+    "datasets": {
+      "DYNAMIX10%5cBCDEMO,DBC23A": {
+        "dataSources": {
+          "Accid": {
+            "tableName": "[dbo].[Accid]"
+          },
+          "Accident Enreg": {
+            "tableName": "[dbo].[Accident Enreg]"
+          },
+          "Action Préventif": {
+            "tableName": "[dbo].[Action Préventif]"
+          },
+          "Article": {
+            "tableName": "[dbo].[Article]"
+          },
+          "Chauffeur": {
+            "tableName": "[dbo].[Chauffeur]"
+          },
+          "Circuits_1": {
+            "tableName": "[dbo].[Circuits]"
+          },
+          "Client": {
+            "tableName": "[dbo].[Client]"
+          },
+          "Code Panne": {
+            "tableName": "[dbo].[Code Panne]"
+          },
+          "Détails Réparation": {
+            "tableName": "[dbo].[Détails Réparation]"
+          },
+          "Disponibilité_1": {
+            "tableName": "[dbo].[Disponibilité]"
+          },
+          "Document": {
+            "tableName": "[dbo].[Document]"
+          },
+          "écritures article": {
+            "tableName": "[dbo].[écritures article]"
+          },
+          "Fournisseur": {
+            "tableName": "[dbo].[Fournisseur]"
+          },
+          "Magasin": {
+            "tableName": "[dbo].[Magasin]"
+          },
+          "Missions_1": {
+            "tableName": "[dbo].[Missions]"
+          },
+          "Panne": {
+            "tableName": "[dbo].[Panne]"
+          },
+          "Pneu Réparation": {
+            "tableName": "[dbo].[Pneu Réparation]"
+          },
+          "Pneu Reparation Enrg": {
+            "tableName": "[dbo].[Pneu Reparation Enrg]"
+          },
+          "Pr_Réparations": {
+            "tableName": "[dbo].[Pr_Réparations]"
+          },
+          "Réclamation": {
+            "tableName": "[dbo].[Réclamation]"
+          },
+          "Réparation": {
+            "tableName": "[dbo].[Réparation]"
+          },
+          "Véhicule": {
+            "tableName": "[dbo].[Véhicule]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Véhicule",
+      "Chauffeur",
+      "Article",
+      "Client",
+      "Fournisseur",
+      "Circuits_1",
+      "Missions_1",
+      "Disponibilité_1",
+      "Réclamation",
+      "Code Panne",
+      "Réparation",
+      "Document",
+      "Accid",
+      "Accident Enreg",
+      "Action Préventif",
+      "écritures article",
+      "Magasin",
+      "Détails Réparation",
+      "Pr_Réparations",
+      "Panne",
+      "Pneu Réparation",
+      "Pneu Reparation Enrg"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "endpoints": [
+      "DYNAMIX10%5cBCDEMO,DBC23A"
+    ],
+    "id": "8dc193ba-d2fb-4884-a3c0-7f4ddb62f7a4"
+  },
+  "9eda15ea-f77a-49aa-9fc6-3c12f31dfe18": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office\u00A0365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1677/1.0.1677.3637/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "9eda15ea-f77a-49aa-9fc6-3c12f31dfe18"
+  }
+}

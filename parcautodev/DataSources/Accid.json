@@ -1,0 +1,29 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2024-03-27T20:57:43.3640000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "Créer_x0020_Réparation": "Créer Réparation",
+      "Date_x0020_accident": "Date accident",
+      "Date_x0020_Document": "Date Document",
+      "No_x0020_accident": "No accident",
+      "No_x0020_conducteur": "No conducteur",
+      "No_x0020_constat": "No constat",
+      "No_x0020_immatriculation": "No immatriculation",
+      "No_x0020_mission": "No mission",
+      "No_x0020_vehicule": "No vehicule",
+      "Nom_x0020_Conducteur": "Nom Conducteur",
+      "Statut": "Statut"
+    },
+    "DatasetName": "DYNAMIX10%5cBCDEMO,DBC23A",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Accid",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

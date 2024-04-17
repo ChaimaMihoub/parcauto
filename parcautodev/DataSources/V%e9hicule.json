@@ -1,0 +1,40 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2024-03-27T20:57:43.3640000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "Bloqué": "Bloqué",
+      "Code_x0020_Catégorie": "Code Catégorie",
+      "Code_x0020_Immo": "Code Immo",
+      "Code_x0020_Sous_x002d_Catégorie": "Code Sous-Catégorie",
+      "Coût_x0020_Carburant_x0020_Consommé": "Coût Carburant Consommé",
+      "Date_x0020_D_x0027_aquisition": "Date D'aquisition",
+      "Date_x0020_dernière_x0020_Réparation": "Date dernière Réparation",
+      "Date_x0020_dernière_x0020_visite_x0020_technique": "Date dernière visite technique",
+      "Date_x0020_fin_x0020_de_x0020_garantie": "Date fin de garantie",
+      "Date_x0020_Immatriculation": "Date Immatriculation",
+      "Date_x0020_première_x0020_mise_x0020_en_x0020_circulation": "Date première mise en circulation",
+      "Désignation": "Désignation",
+      "Etat_x0020_Véhicule": "Etat Véhicule",
+      "Immatriculation": "Immatriculation",
+      "Index_x0020_de_x0020_départ": "Index de départ",
+      "Index_x0020_Théoriqur_x0020_Final": "Index Théoriqur Final",
+      "No_x0020_véhicule": "No véhicule",
+      "Num_x0020_chaasis": "Num chaasis",
+      "Propriétaire": "Propriétaire",
+      "Quantité_x0020_Carburant_x0020_Consommé": "Quantité Carburant Consommé",
+      "Remorque": "Remorque",
+      "Type_x0020_Carburant": "Type Carburant"
+    },
+    "DatasetName": "DYNAMIX10%5cBCDEMO,DBC23A",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Véhicule",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

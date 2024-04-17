@@ -1,0 +1,177 @@
+menu As CanvasComponent:
+    BaseIconColor: =RGBA(115, 131, 176, 1)
+    BseColorText: ="rgba(115,131,176,1)"
+    CurrentMenuId: =1
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    HoverFill: =RGBA(0, 0, 0, 0.1)
+    logo_compact: ='logo-dynamix2'
+    logo_padding: =20%
+    menuContent: |+
+        =//Table({SampleStringField: "SampleText"; SampleNumberField: 10; SampleBooleanField: true})
+        Table({
+        
+        MenuIcon_Selected:"<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket-fill' viewBox='0 0 16 16'>
+          <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5m1.005 0a4.5 4.5 0 0 1 8.945 0zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z'/>
+        </svg>",
+        
+        MenuIcon:"<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill= 'currentColor'  class='bi bi-bucket' viewBox='0 0 16 16'>
+          <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5m1.005 0a4.5 4.5 0 0 1 8.945 0zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z'/>
+        </svg>",
+        MenuID:1,
+        MenuName: "Reparation",
+        PageNavigation: App.ActiveScreen
+        },
+        {
+        
+            MenuIcon_Selected:"<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket-fill' viewBox='0 0 16 16'>
+          <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5m1.005 0a4.5 4.5 0 0 1 8.945 0zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z'/>
+        </svg>",
+        
+        MenuIcon:"<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket' viewBox='0 0 16 16'>
+          <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5m1.005 0a4.5 4.5 0 0 1 8.945 0zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z'/>
+        </svg>",
+        MenuID:2,
+        MenuName: "Reparation1",
+        PageNavigation: App.ActiveScreen
+        })
+        
+        
+        
+        
+        
+        
+        
+    NavBG: =RGBA(244, 244, 244, 1)
+    PressedFill: =RGBA(0, 0, 0, 0.2)
+    SelectedColorText: |
+        ="rgba(254,189,47,1)"
+    SelectedIconBG: =RGBA(255,255,255,1)
+    SelectedIconColor: =RGBA(254,189,47,1)
+    Width: =70
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Container3 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =menu.NavBG
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        logo As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =50
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =menu.logo_compact
+            LayoutMinWidth: =0
+            PaddingBottom: =Self.Height*menu.logo_padding
+            PaddingTop: =Self.Height*menu.logo_padding
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =0
+            ZIndex: =2
+
+        Gallery1 As gallery.galleryVertical:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderColor: =RGBA(245, 245, 245, 1)
+            DelayItemLoading: =true
+            FillPortions: =0
+            Height: |-
+                =//Self.AllItemsCount*(Self.TemplateHeight+Self.TemplatePadding)
+                500
+            Items: =menu.menuContent
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =0
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =50
+            ZIndex: =3
+
+            Container10 As groupContainer.manualLayoutContainer:
+                Height: =50
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.TemplateWidth
+                ZIndex: =1
+
+                Container11 As groupContainer.manualLayoutContainer:
+                    Fill: =If(menu.CurrentMenuId=ThisItem.MenuID,menu.SelectedIconBG,RGBA(0,0,0,0))
+                    Height: =Parent.Height*70%
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =Self.Height
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =(Parent.Height-Self.Height)/2
+                    ZIndex: =1
+
+                    Image6 As image:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =4
+                        Height: =Parent.Height
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: |+
+                            ="data:image/svg+xml;utf8,"&EncodeUrl(
+                                Substitute(
+                                   If(menu.CurrentMenuId=ThisItem.MenuID,
+                                    ThisItem.MenuIcon_Selected,ThisItem.MenuIcon
+                                    ),
+                                "currentColor",
+                                If(menu.CurrentMenuId=ThisItem.MenuID,
+                               menu.SelectedColorText,
+                               menu.BseColorText
+                            )))
+                            
+                        PaddingBottom: =5
+                        PaddingTop: =5
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    Button2 As button:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisabledFill: =RGBA(242, 242, 241, 0)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =RGBA(204, 228, 246, 1)
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =menu.HoverFill
+                        OnSelect: =Navigate(ThisItem.PageNavigation)
+                        PressedBorderColor: =RGBA(204, 228, 246, 1)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =menu.PressedFill
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.Width
+                        ZIndex: =2
+

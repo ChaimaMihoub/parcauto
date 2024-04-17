@@ -1,0 +1,216 @@
+CopiePlaning As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Container1_16 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container7_15 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =menu_19.Width
+            ZIndex: =1
+
+            menu_19 As menu_2:
+                BseColorText: =//"rgba(115,131,176,1)"
+                Height: =Parent.Height
+                logo_compact: =//'logo-dynamix2'
+                logo_padding: = If(menu_19.MenuExpended,19%,19%)
+                logoExpended: =//'logo-dynamix-full'
+                menuContent: =CustomNavigation
+                Width: =If(menu_19.MenuExpended,150,70)
+
+        ScreenContainer1_17 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(244, 244, 244, 1)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =15
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Width: =Parent.Width
+            ZIndex: =3
+
+            TableNameContainer1_17 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =68
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                TableNameLabel1_17 As label:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(0, 0, 0, 1)
+                    FillPortions: =1
+                    Font: =Font.'Lato Black'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =68
+                    PaddingBottom: =
+                    PaddingLeft: =16
+                    PaddingRight: =16
+                    PaddingTop: =40
+                    Size: =16
+                    Text: |-
+                        =//DataSourceInfo([@Véhicule]; DataSourceInfo.DisplayName)
+                        "Copie Planning"
+                    ZIndex: =3
+
+                "'Offline sync Icon1_17' As icon.Globe":
+                    AccessibleLabel: ="Icône de statut de synchronisation hors connexion"
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: |+
+                        =RGBA(208, 25, 119, 0.8)
+                        
+                    Icon: |-
+                        =Switch(Connection.Sync,
+                           ConnectionSync.Connected, Icon.Globe, 
+                           ConnectionSync.ConnectedWithWarning, Icon.GlobeWarning,
+                           ConnectionSync.ConnectedPendingUpsync, Icon.GlobeChangesPending,
+                           ConnectionSync.ConnectedError, Icon.GlobeError,
+                           ConnectionSync.ConnectedRefresh, Icon.GlobeRefresh,
+                           ConnectionSync.NotConnected, Icon.GlobeNotConnected, 
+                           ConnectionSync.NotConnectedWithWarning, Icon.GlobeWarning,
+                           ConnectionSync.NotConnectedPendingUpsync, Icon.GlobeChangesPending,
+                           ConnectionSync.NotConnectedSyncError, Icon.GlobeError)
+                    LayoutMinHeight: =32
+                    OnSelect: =ShowHostInfo(HostInfo.OfflineSync)
+                    PaddingLeft: =5
+                    PaddingRight: =15
+                    PaddingTop: =40
+                    TabIndex: =0
+                    Tooltip: =If(Connection.Connected,"Connecté","Hors connexion")
+                    Visible: =Host.OfflineEnabled
+                    Width: =52
+                    ZIndex: =29
+
+    DatePicker1 As datepicker:
+        BorderColor: =RGBA(245, 245, 245, 1)
+        CalendarHeaderFill: =RGBA(16, 110, 190, 1)
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(245, 245, 245, 1)
+        Font: =Font.'Segoe UI'
+        HoverDateFill: =RGBA(184, 187, 184, 1)
+        IconBackground: =RGBA(0, 120, 212, 1)
+        PaddingTop: =5
+        SelectedDateFill: =RGBA(0, 120, 212, 1)
+        Size: =13
+        X: =450
+        Y: =183
+        ZIndex: =2
+
+    DatePicker2 As datepicker:
+        BorderColor: =RGBA(245, 245, 245, 1)
+        CalendarHeaderFill: =RGBA(16, 110, 190, 1)
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(245, 245, 245, 1)
+        Font: =Font.'Segoe UI'
+        HoverDateFill: =RGBA(184, 187, 184, 1)
+        IconBackground: =RGBA(0, 120, 212, 1)
+        PaddingTop: =5
+        SelectedDateFill: =RGBA(0, 120, 212, 1)
+        Size: =13
+        X: =450
+        Y: =259
+        ZIndex: =3
+
+    Dropdown21 As dropdown:
+        BorderColor: =RGBA(245, 245, 245, 1)
+        ChevronBackground: =RGBA(245, 245, 245, 1)
+        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+        ChevronFill: =RGBA(50, 49, 48, 1)
+        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+        ChevronHoverFill: =RGBA(50, 49, 48, 1)
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(245, 245, 245, 1)
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =RGBA(16, 110, 190, 1)
+        HoverColor: =RGBA(50, 49, 48, 1)
+        HoverFill: =RGBA(245, 245, 245, 1)
+        Items: =DropDownSample
+        PaddingBottom: =5
+        PaddingLeft: =12
+        PaddingRight: =5
+        PaddingTop: =5
+        PressedBorderColor: =RGBA(16, 110, 190, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        SelectionColor: =RGBA(50, 49, 48, 1)
+        SelectionFill: =RGBA(0, 120, 212, 1)
+        Size: =13
+        X: =450
+        Y: =339
+        ZIndex: =4
+
+    DatePicker4 As datepicker:
+        BorderColor: =RGBA(245, 245, 245, 1)
+        CalendarHeaderFill: =RGBA(16, 110, 190, 1)
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(245, 245, 245, 1)
+        Font: =Font.'Segoe UI'
+        HoverDateFill: =RGBA(184, 187, 184, 1)
+        IconBackground: =RGBA(0, 120, 212, 1)
+        PaddingTop: =5
+        SelectedDateFill: =RGBA(0, 120, 212, 1)
+        Size: =13
+        X: =450
+        Y: =417
+        ZIndex: =5
+
+    Button8 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(0, 120, 212, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(16, 110, 190, 1)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(16, 110, 190, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =15
+        Text: ="Bouton"
+        X: =510
+        Y: =543
+        ZIndex: =6
+

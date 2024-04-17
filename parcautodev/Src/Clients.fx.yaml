@@ -1,0 +1,2278 @@
+Clients As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Container1_4 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container7_3 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =menu_7.Width
+            ZIndex: =1
+
+            menu_7 As menu_2:
+                BseColorText: =//"rgba(115,131,176,1)"
+                Height: =Parent.Height
+                logo_compact: =//'logo-dynamix2'
+                logo_padding: = If(menu_7.MenuExpended,19%,19%)
+                logoExpended: =//'logo-dynamix-full'
+                menuContent: =CustomNavigation
+                Width: =If(menu_7.MenuExpended,150,70)
+
+        ScreenContainer1_7 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(244, 244, 244, 1)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =15
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Width: =Parent.Width
+            ZIndex: =3
+
+            TableNameContainer1_7 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =68
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                TableNameLabel1_7 As label:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: =RGBA(0, 0, 0, 1)
+                    FillPortions: =1
+                    Font: =Font.'Lato Black'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =68
+                    PaddingBottom: =
+                    PaddingLeft: =16
+                    PaddingRight: =16
+                    PaddingTop: =40
+                    Size: =16
+                    Text: |-
+                        =//DataSourceInfo([@Véhicule]; DataSourceInfo.DisplayName)
+                        "Clients"
+                    ZIndex: =3
+
+                "'Offline sync Icon1_7' As icon.Globe":
+                    AccessibleLabel: ="Icône de statut de synchronisation hors connexion"
+                    AlignInContainer: =AlignInContainer.Stretch
+                    Color: |+
+                        =RGBA(208, 25, 119, 0.8)
+                        
+                    Icon: |-
+                        =Switch(Connection.Sync,
+                           ConnectionSync.Connected, Icon.Globe, 
+                           ConnectionSync.ConnectedWithWarning, Icon.GlobeWarning,
+                           ConnectionSync.ConnectedPendingUpsync, Icon.GlobeChangesPending,
+                           ConnectionSync.ConnectedError, Icon.GlobeError,
+                           ConnectionSync.ConnectedRefresh, Icon.GlobeRefresh,
+                           ConnectionSync.NotConnected, Icon.GlobeNotConnected, 
+                           ConnectionSync.NotConnectedWithWarning, Icon.GlobeWarning,
+                           ConnectionSync.NotConnectedPendingUpsync, Icon.GlobeChangesPending,
+                           ConnectionSync.NotConnectedSyncError, Icon.GlobeError)
+                    LayoutMinHeight: =32
+                    OnSelect: =ShowHostInfo(HostInfo.OfflineSync)
+                    PaddingLeft: =5
+                    PaddingRight: =15
+                    PaddingTop: =40
+                    TabIndex: =0
+                    Tooltip: =If(Connection.Connected,"Connecté","Hors connexion")
+                    Visible: =Host.OfflineEnabled
+                    Width: =52
+                    ZIndex: =29
+
+            BodyContainer1_7 As groupContainer.horizontalAutoLayoutContainer:
+                LayoutGap: =16
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =2
+                PaddingLeft: =2
+                PaddingRight: =2
+                PaddingTop: =2
+                ZIndex: =4
+
+                SidebarContainer1_7 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =If(And(Clients.Size = ScreenSize.Small, Or(newMode, editMode, itemSelected)), 0, 3)
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =10
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =16
+                    PaddingRight: =16
+                    PaddingTop: =10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =If(And(Clients.Size = ScreenSize.Small, Or(newMode, editMode, itemSelected)), false, true)
+                    ZIndex: =5
+
+                    SearchContainer1_7 As groupContainer.horizontalAutoLayoutContainer:
+                        Fill: =RGBA(245, 245, 245, 1)
+                        FillPortions: =0
+                        Height: =44
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =0
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =6
+
+                        SearchInput1_7 As text:
+                            BorderStyle: =BorderStyle.None
+                            Default: =""
+                            Fill: =RGBA(0, 0, 0, 0)
+                            FillPortions: =1
+                            Font: =Font.Lato
+                            Height: =44
+                            HintText: ="Rechercher"
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            LayoutMinWidth: =0
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            ZIndex: =7
+
+                        SearchIcon1_7 As icon:
+                            Color: =RGBA(208, 25, 119, 0.8)
+                            Height: =44
+                            Icon: =Icon.Search
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            Width: =44
+                            ZIndex: =8
+
+                    NewRecordButtonBarContainer1_7 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =44
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =9
+
+                        NewRecordAddIcon1_7 As icon:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(208, 25, 119, 0.8)
+                            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                            DisabledColor: =RGBA(225, 223, 221, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =44
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Add
+                            OnSelect: |-
+                                =NewForm(Form1_7); UpdateContext({ newMode: true });
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =RGBA(16, 110, 190, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =44
+                            ZIndex: =10
+
+                        NewRecordLabel1_7 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(50, 49, 48, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(161, 159, 157, 1)
+                            FillPortions: =1
+                            FocusedBorderThickness: =4
+                            Font: =Font.Lato
+                            Height: =44
+                            Size: =13
+                            Text: ="Nouveau"
+                            ZIndex: =11
+
+                    RecordsListSeparator1_7 As rectangle:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledFill: =RGBA(161, 159, 157, 1)
+                        Fill: =RGBA(225, 223, 221, 1)
+                        FocusedBorderThickness: =4
+                        Height: =1
+                        HoverFill: =RGBA(0, 120, 212, 1)
+                        LayoutMinWidth: =200
+                        PressedFill: =RGBA(0, 120, 212, 1)
+                        ZIndex: =12
+
+                    "RecordsGallery1_7 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
+                        BorderColor: =RGBA(245, 245, 245, 1)
+                        Default: =CurrentItem
+                        DelayItemLoading: =true
+                        Fill: =RGBA(250, 250, 250, 1)
+                        Items: |-
+                            =Search([@Client], SearchInput1_7.Text,"No")
+                            //Search(Véhicule;SearchInput1.Text;"No_x0020_véhicule")
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =0
+                        LoadingSpinner: =LoadingSpinner.Data
+                        OnSelect: |-
+                            =UpdateContext({ itemSelected: true, CurrentItem: ThisItem })
+                        TemplateFill: =If(Self.IsSelected, RGBA(230, 230, 230, 1), RGBA(0, 0, 0, 0))
+                        TemplatePadding: =0
+                        TemplateSize: =104
+                        ZIndex: =13
+
+                        Title1_7 As label:
+                            Color: =RGBA(50, 49, 48, 1)
+                            DisabledColor: =RGBA(161, 159, 157, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                            Height: =Self.Size * 1.8
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =12
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =ThisItem.Adresse
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Parent.TemplateWidth - 86
+                            X: =16
+                            Y: =(Parent.TemplateHeight - (Self.Size*1.8 +Subtitle1_4.Size*1.8 + 2 + Body1_4.Size*1.8)) / 2
+                            ZIndex: =1
+
+                        Subtitle1_7 As label:
+                            Color: =RGBA(96, 94, 92, 1)
+                            DisabledColor: =RGBA(161, 159, 157, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                            Height: =Self.Size * 1.8
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =12
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =12
+                            Text: =ThisItem.'Adresse e-mail'
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Title1_7.Width
+                            X: =Title1_7.X
+                            Y: =Title1_7.Y + Title1_7.Height
+                            ZIndex: =2
+
+                        Body1_7 As label:
+                            Color: =RGBA(96, 94, 92, 1)
+                            DisabledColor: =RGBA(161, 159, 157, 1)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                            Height: =Self.Size * 1.8
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =12
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =12
+                            Text: =ThisItem.No
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Title1_7.Width
+                            X: =Title1_7.X
+                            Y: =Subtitle1_7.Y + Subtitle1_7.Height
+                            ZIndex: =3
+
+                        NextArrow1_7 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =ColorFade(RGBA(208, 25, 119, 0.8),-20%)
+                            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                            DisabledColor: =RGBA(225, 223, 221, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =50
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =RGBA(16, 110, 190, 1)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.ChevronRight
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =16
+                            PaddingLeft: =16
+                            PaddingRight: =16
+                            PaddingTop: =16
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =RGBA(16, 110, 190, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Tooltip: ="Afficher les détails de l'élément"
+                            Width: =50
+                            X: =Parent.TemplateWidth - Self.Width - 12
+                            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                            ZIndex: =4
+
+                        Separator1_7 As rectangle:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =8
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - Self.Height
+                            ZIndex: =5
+
+                        Rectangle1_7 As rectangle:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Fill: =RGBA(208, 25, 119, 0.8)
+                            Height: =Parent.TemplateHeight - Separator1_7.Height
+                            OnSelect: =Select(Parent)
+                            Visible: =ThisItem.IsSelected
+                            Width: =4
+                            ZIndex: =6
+
+                RightContainer1_7 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =7
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =16
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =2
+                    PaddingLeft: =2
+                    PaddingRight: =2
+                    PaddingTop: =2
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =If(Or(deleteMode, And(Clients.Size = ScreenSize.Small, !newMode, !editMode, !itemSelected)), false, true)
+                    Width: =0
+                    ZIndex: =14
+
+                    SelectedRecordHeaderContainer1_7 As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =50
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =15
+
+                        BackIconButton1_7 As icon.Add:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(0, 120, 212, 1)
+                            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                            DisabledColor: =RGBA(225, 223, 221, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =50
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =RGBA(16, 110, 190, 1)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.ChevronLeft
+                            OnSelect: |-
+                                =UpdateContext({ itemSelected: false })
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =RGBA(16, 110, 190, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            TabIndex: =0
+                            Visible: =If(Clients.Size = ScreenSize.Small, And(!editMode, !newMode, !deleteMode), false)
+                            Width: =50
+                            ZIndex: =16
+
+                        SelectedRecordTitle1_7 As label:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(50, 49, 48, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(161, 159, 157, 1)
+                            FillPortions: =1
+                            FocusedBorderThickness: =4
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            PaddingLeft: =30
+                            Size: =13
+                            Text: =RecordsGallery1_7.Selected.No
+                            ZIndex: =17
+
+                        SubmitFormButton1_7 As icon:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(208, 25, 119, 0.8)
+                            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                            DisabledColor: =RGBA(225, 223, 221, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =50
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Check
+                            OnSelect: =SubmitForm(Form1_7)
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =RGBA(16, 110, 190, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            TabIndex: =0
+                            Visible: =Or(editMode, newMode)
+                            Width: =50
+                            ZIndex: =18
+
+                        ResetFormButton1_7 As icon:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(208, 25, 119, 0.8)
+                            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                            DisabledColor: =RGBA(225, 223, 221, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =50
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Cancel
+                            OnSelect: |-
+                                =ResetForm(Form1_7); UpdateContext({ editMode: false, newMode: false });
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =RGBA(16, 110, 190, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            TabIndex: =0
+                            Visible: =Or(editMode, newMode)
+                            Width: =50
+                            ZIndex: =19
+
+                        EditIconButton1_7 As icon:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(208, 25, 119, 0.8)
+                            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                            DisabledColor: =RGBA(225, 223, 221, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =50
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Edit
+                            OnSelect: |-
+                                =UpdateContext({ editMode: true, selectedRecord: RecordsGallery1_7.Selected })
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =RGBA(16, 110, 190, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            TabIndex: =0
+                            Visible: =And(!editMode, !newMode, !deleteMode)
+                            Width: =50
+                            ZIndex: =20
+
+                        DeleteIconButton1_7 As icon:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            Color: =RGBA(208, 25, 119, 0.8)
+                            DisabledBorderColor: =RGBA(245, 245, 245, 1)
+                            DisabledColor: =RGBA(225, 223, 221, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =50
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Trash
+                            OnSelect: |-
+                                =UpdateContext({ deleteMode: true, deleteCancelled: false, selectedRecord: RecordsGallery1_7.Selected })
+                            PaddingBottom: =12
+                            PaddingLeft: =12
+                            PaddingRight: =12
+                            PaddingTop: =12
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =RGBA(16, 110, 190, 1)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            TabIndex: =0
+                            Visible: =And(!editMode, !newMode, !deleteMode)
+                            Width: =50
+                            ZIndex: =21
+
+                    MainContainer1_7 As groupContainer.verticalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =22
+
+                        Form1_7 As form:
+                            BorderColor: =RGBA(245, 245, 245, 1)
+                            DataSource: =Client
+                            DefaultMode: =If(newMode, FormMode.New, editMode, FormMode.Edit, FormMode.View)
+                            Item: =RecordsGallery1_7.Selected
+                            LayoutMinHeight: =250
+                            LayoutMinWidth: =0
+                            NumberOfColumns: =2
+                            OnFailure: =Notify("Impossible d’enregistrer. Vérifiez si le formulaire contient des erreurs.", NotificationType.Error)
+                            OnSuccess: |-
+                                =UpdateContext({ CurrentItem: Self.LastSubmit, editMode: false, newMode: false })
+                            ZIndex: =23
+
+                            "'No véhicule_DataCard2_3' As typedDataCard.textualEditCard":
+                                BorderColor: =RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="No"
+                                Default: =ThisItem.No
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"No")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =158
+                                MaxLength: =DataSourceInfo([@Véhicule], DataSourceInfo.MaxLength, "No_x0020_véhicule")
+                                Required: =true
+                                Update: =DataCardValue15_3.Text
+                                Width: =405
+                                WidthFit: =true
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
+                                StarVisible15_3 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: ='No véhicule_DataCard2_3'.Y
+                                    ZIndex: =4
+
+                                Container8_26 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =15
+                                    Y: =19
+                                    ZIndex: =5
+
+                                    Container9_26 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_29.Height+Container5_26.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_29 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: ='No véhicule_DataCard2_3'.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_26 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank('No véhicule_DataCard2_3'.Error),'No véhicule_DataCard2_3'.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =373
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue15_3 As text:
+                                                BorderColor: =If(IsBlank('No véhicule_DataCard2_3'.Error), Parent.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =0
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: ='No véhicule_DataCard2_3'.Default
+                                                DelayOutput: =true
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                                HoverColor: =RGBA(50, 49, 48, 1)
+                                                HoverFill: =RGBA(255, 255, 255, 1)
+                                                MaxLength: ='No véhicule_DataCard2_3'.MaxLength
+                                                PaddingLeft: =5
+                                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                                PressedColor: =RGBA(50, 49, 48, 1)
+                                                PressedFill: =RGBA(255, 255, 255, 1)
+                                                RadiusBottomLeft: =0
+                                                RadiusBottomRight: =0
+                                                RadiusTopLeft: =0
+                                                RadiusTopRight: =0
+                                                Size: =13
+                                                Tooltip: ='No véhicule_DataCard2_3'.DisplayName
+                                                Width: =351
+                                                X: =3
+                                                ZIndex: =4
+
+                                        Rectangle3_26 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank('No véhicule_DataCard2_3'.Error),'No véhicule_DataCard2_3'.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_29 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: ='No véhicule_DataCard2_3'.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_26.Y + Container5_26.Height
+                                        ZIndex: =2
+
+                            Bloqué_DataCard1_6 As typedDataCard.toggleEditCard:
+                                BorderColor: |-
+                                    =//RGBA(245; 245; 245; 1)
+                                    RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="Timbre"
+                                Default: =ThisItem.Timbre
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"Timbre")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =75
+                                Required: =false
+                                Update: =DataCardValue5_6.Value
+                                Width: =405
+                                WidthFit: =true
+                                X: =1
+                                Y: =0
+                                ZIndex: =1
+
+                                StarVisible6_6 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: =Bloqué_DataCard1_6.Y
+                                    ZIndex: =4
+
+                                Container8_27 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =18
+                                    Y: =19
+                                    ZIndex: =5
+
+                                    Container9_27 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_30.Height+Container5_27.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_30 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: =Bloqué_DataCard1_6.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_27 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank(Bloqué_DataCard1_6.Error),Bloqué_DataCard1_6.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =373
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue5_6 As toggleSwitch:
+                                                BorderColor: =If(IsBlank(Bloqué_DataCard1_6.Error), Bloqué_DataCard1_6.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: =Bloqué_DataCard1_6.Default
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FalseFill: =RGBA(208, 25, 119, 0.8)
+                                                FalseHoverFill: =RGBA(50, 49, 48, 1)
+                                                FalseText: =
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                HandleFill: =RGBA(255, 255, 255, 1)
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                Size: =13
+                                                Tooltip: =Bloqué_DataCard1_6.DisplayName
+                                                TrueFill: =RGBA(208, 25, 119, 0.8)
+                                                TrueHoverFill: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                                                TrueText: =
+                                                X: =30
+                                                Y: =12
+                                                ZIndex: =3
+
+                                        Rectangle3_27 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank(Bloqué_DataCard1_6.Error),Bloqué_DataCard1_6.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_30 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: =Bloqué_DataCard1_6.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_27.Y + Container5_27.Height
+                                        ZIndex: =2
+
+                            "'Num chaasis_DataCard1_6' As typedDataCard.numberEditCard":
+                                BorderColor: |-
+                                    =//RGBA(245; 245; 245; 1)
+                                    RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="Solde_x0020_DS"
+                                Default: =ThisItem.'Solde DS'
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"Solde_x0020_DS")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =158
+                                Required: =false
+                                Update: =Value(DataCardValue6_6.Text)
+                                Width: =405
+                                WidthFit: =true
+                                X: =0
+                                Y: =1
+                                ZIndex: =1
+
+                                StarVisible7_6 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: ='Num chaasis_DataCard1_6'.Y
+                                    ZIndex: =4
+
+                                Container8_38 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =18
+                                    Y: =21
+                                    ZIndex: =5
+
+                                    Container9_38 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_41.Height+Container5_38.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_41 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: ='Num chaasis_DataCard1_6'.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_38 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank('Num chaasis_DataCard1_6'.Error),'Num chaasis_DataCard1_6'.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =373
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue6_6 As text:
+                                                BorderColor: =If(IsBlank('Num chaasis_DataCard1_6'.Error), Parent.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =0
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: ='Num chaasis_DataCard1_6'.Default
+                                                DelayOutput: =true
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                HoverBorderColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                                                HoverColor: =RGBA(50, 49, 48, 1)
+                                                HoverFill: =RGBA(255, 255, 255, 1)
+                                                PaddingLeft: =5
+                                                PressedBorderColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                                                PressedColor: =RGBA(50, 49, 48, 1)
+                                                PressedFill: =RGBA(255, 255, 255, 1)
+                                                RadiusBottomLeft: =0
+                                                RadiusBottomRight: =0
+                                                RadiusTopLeft: =0
+                                                RadiusTopRight: =0
+                                                Size: =13
+                                                Tooltip: ='Num chaasis_DataCard1_6'.DisplayName
+                                                Width: =Parent.Width - 60
+                                                X: =30
+                                                ZIndex: =1
+
+                                        Rectangle3_38 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank('Num chaasis_DataCard1_6'.Error),'Num chaasis_DataCard1_6'.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_41 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: ='Num chaasis_DataCard1_6'.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_38.Y + Container5_38.Height
+                                        ZIndex: =2
+
+                            Désignation_DataCard1_6 As typedDataCard.textualEditCard:
+                                BorderColor: |-
+                                    =//RGBA(245; 245; 245; 1)
+                                    RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="No_x0020_Telephone"
+                                Default: =ThisItem.'No Telephone'
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"No_x0020_Telephone")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =50
+                                MaxLength: =DataSourceInfo([@Véhicule], DataSourceInfo.MaxLength, "Désignation")
+                                Required: =false
+                                Update: =DataCardValue10_6.Text
+                                Width: =405
+                                WidthFit: =true
+                                X: =1
+                                Y: =1
+                                ZIndex: =1
+
+                                StarVisible11_6 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: =
+                                    ZIndex: =4
+
+                                Container8_39 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =18
+                                    Y: =21
+                                    ZIndex: =5
+
+                                    Container9_39 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_42.Height+Container5_39.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_42 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: =Désignation_DataCard1_6.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_39 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank(Désignation_DataCard1_6.Error),Désignation_DataCard1_6.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =373
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue10_6 As text:
+                                                BorderColor: =If(IsBlank(Désignation_DataCard1_6.Error), Parent.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =0
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: =Désignation_DataCard1_6.Default
+                                                DelayOutput: =true
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                HoverBorderColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                                                HoverColor: =RGBA(50, 49, 48, 1)
+                                                HoverFill: =RGBA(255, 255, 255, 1)
+                                                MaxLength: =Désignation_DataCard1_6.MaxLength
+                                                PaddingLeft: =5
+                                                PressedBorderColor: =ColorFade(RGBA(208, 25, 119, 0.8),-40%)
+                                                PressedColor: =RGBA(50, 49, 48, 1)
+                                                PressedFill: =RGBA(255, 255, 255, 1)
+                                                RadiusBottomLeft: =0
+                                                RadiusBottomRight: =0
+                                                RadiusTopLeft: =0
+                                                RadiusTopRight: =0
+                                                Size: =13
+                                                Tooltip: =Désignation_DataCard1_6.DisplayName
+                                                Width: =Parent.Width - 60
+                                                X: =30
+                                                ZIndex: =1
+
+                                        Rectangle3_39 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank(Désignation_DataCard1_6.Error),Désignation_DataCard1_6.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_42 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: =Désignation_DataCard1_6.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_39.Y + Container5_39.Height
+                                        ZIndex: =2
+
+                            "'Code Catégorie_DataCard1_3' As typedDataCard.textualEditCard":
+                                BorderColor: =RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="Adresse"
+                                Default: =ThisItem.Adresse
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"Adresse")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =147
+                                MaxLength: =DataSourceInfo([@Véhicule], DataSourceInfo.MaxLength, "Code_x0020_Catégorie")
+                                Required: =false
+                                Update: =DataCardValue24_3.Text
+                                Width: =405
+                                WidthFit: =true
+                                X: =0
+                                Y: =2
+                                ZIndex: =1
+
+                                StarVisible24_3 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: =
+                                    ZIndex: =4
+
+                                Container8_40 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =18
+                                    Y: =18
+                                    ZIndex: =5
+
+                                    Container9_40 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_43.Height+Container5_40.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_43 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: ='Code Catégorie_DataCard1_3'.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_40 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank('Code Catégorie_DataCard1_3'.Error),'Code Catégorie_DataCard1_3'.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =373
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue24_3 As text:
+                                                BorderColor: =If(IsBlank('Code Catégorie_DataCard1_3'.Error), Parent.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =0
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: ='Code Catégorie_DataCard1_3'.Default
+                                                DelayOutput: =true
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                                HoverColor: =RGBA(50, 49, 48, 1)
+                                                HoverFill: =RGBA(255, 255, 255, 1)
+                                                MaxLength: ='Code Catégorie_DataCard1_3'.MaxLength
+                                                PaddingLeft: =5
+                                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                                PressedColor: =RGBA(50, 49, 48, 1)
+                                                PressedFill: =RGBA(255, 255, 255, 1)
+                                                RadiusBottomLeft: =0
+                                                RadiusBottomRight: =0
+                                                RadiusTopLeft: =0
+                                                RadiusTopRight: =0
+                                                Size: =13
+                                                Tooltip: ='Code Catégorie_DataCard1_3'.DisplayName
+                                                Width: =Parent.Width - 60
+                                                X: =30
+                                                ZIndex: =1
+
+                                        Rectangle3_40 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank('Code Catégorie_DataCard1_3'.Error),'Code Catégorie_DataCard1_3'.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_43 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: ='Code Catégorie_DataCard1_3'.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_40.Y + Container5_40.Height
+                                        ZIndex: =2
+
+                            "'Code Immo_DataCard1_3' As typedDataCard.textualEditCard":
+                                BorderColor: =RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="Adresse_x0020_e_x002d_mail"
+                                Default: =ThisItem.'Adresse e-mail'
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"Adresse_x0020_e_x002d_mail")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =127
+                                MaxLength: =DataSourceInfo([@Véhicule], DataSourceInfo.MaxLength, "Code_x0020_Immo")
+                                Required: =false
+                                Update: =DataCardValue25_3.Text
+                                Width: =405
+                                WidthFit: =true
+                                X: =1
+                                Y: =2
+                                ZIndex: =1
+
+                                StarVisible25_3 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: =
+                                    ZIndex: =4
+
+                                Container8_41 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =18
+                                    Y: =18
+                                    ZIndex: =5
+
+                                    Container9_41 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_44.Height+Container5_41.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_44 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: ='Code Immo_DataCard1_3'.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_41 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank('Code Immo_DataCard1_3'.Error),'Code Immo_DataCard1_3'.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =373
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue25_3 As text:
+                                                BorderColor: =If(IsBlank('Code Immo_DataCard1_3'.Error), Parent.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =0
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: ='Code Immo_DataCard1_3'.Default
+                                                DelayOutput: =true
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                                HoverColor: =RGBA(50, 49, 48, 1)
+                                                HoverFill: =RGBA(255, 255, 255, 1)
+                                                MaxLength: ='Code Immo_DataCard1_3'.MaxLength
+                                                PaddingLeft: =5
+                                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                                PressedColor: =RGBA(50, 49, 48, 1)
+                                                PressedFill: =RGBA(255, 255, 255, 1)
+                                                RadiusBottomLeft: =0
+                                                RadiusBottomRight: =0
+                                                RadiusTopLeft: =0
+                                                RadiusTopRight: =0
+                                                Size: =13
+                                                Tooltip: ='Code Immo_DataCard1_3'.DisplayName
+                                                Width: =Parent.Width - 60
+                                                X: =30
+                                                ZIndex: =1
+
+                                        Rectangle3_41 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank('Code Immo_DataCard1_3'.Error),'Code Immo_DataCard1_3'.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_44 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: ='Code Immo_DataCard1_3'.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_41.Y + Container5_41.Height
+                                        ZIndex: =2
+
+                            "'Code Sous-Catégorie_DataCard1_3' As typedDataCard.textualEditCard":
+                                BorderColor: =RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="Nom"
+                                Default: =ThisItem.Nom
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"Nom")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =137
+                                MaxLength: =DataSourceInfo([@Véhicule], DataSourceInfo.MaxLength, "Code_x0020_Sous_x002d_Catégorie")
+                                Required: =false
+                                Update: =DataCardValue26_3.Text
+                                Width: =405
+                                WidthFit: =true
+                                X: =0
+                                Y: =3
+                                ZIndex: =1
+
+                                StarVisible26_3 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: =
+                                    ZIndex: =4
+
+                                Container8_42 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =18
+                                    Y: =12
+                                    ZIndex: =5
+
+                                    Container9_42 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_45.Height+Container5_42.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_45 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: ='Code Sous-Catégorie_DataCard1_3'.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_42 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank('Code Sous-Catégorie_DataCard1_3'.Error),'Code Sous-Catégorie_DataCard1_3'.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =373
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue26_3 As text:
+                                                BorderColor: =If(IsBlank('Code Sous-Catégorie_DataCard1_3'.Error), Parent.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =0
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: ='Code Sous-Catégorie_DataCard1_3'.Default
+                                                DelayOutput: =true
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                                HoverColor: =RGBA(50, 49, 48, 1)
+                                                HoverFill: =RGBA(255, 255, 255, 1)
+                                                MaxLength: ='Code Sous-Catégorie_DataCard1_3'.MaxLength
+                                                PaddingLeft: =5
+                                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                                PressedColor: =RGBA(50, 49, 48, 1)
+                                                PressedFill: =RGBA(255, 255, 255, 1)
+                                                RadiusBottomLeft: =0
+                                                RadiusBottomRight: =0
+                                                RadiusTopLeft: =0
+                                                RadiusTopRight: =0
+                                                Size: =13
+                                                Tooltip: ='Code Sous-Catégorie_DataCard1_3'.DisplayName
+                                                Width: =Parent.Width - 60
+                                                X: =30
+                                                ZIndex: =1
+
+                                        Rectangle3_42 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank('Code Sous-Catégorie_DataCard1_3'.Error),'Code Sous-Catégorie_DataCard1_3'.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_45 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: ='Code Sous-Catégorie_DataCard1_3'.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_42.Y + Container5_42.Height
+                                        ZIndex: =2
+
+                            "'Coût Carburant Consommé_DataCard1_2' As typedDataCard.numberEditCard":
+                                BorderColor: =RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="Solde_x0020_Du_x0020_DS"
+                                Default: =ThisItem.'Solde Du DS'
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"Solde_x0020_Du_x0020_DS")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =121
+                                Required: =false
+                                Update: =Value(DataCardValue27_2.Text)
+                                Width: =405
+                                WidthFit: =true
+                                X: =1
+                                Y: =3
+                                ZIndex: =1
+
+                                StarVisible27_2 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: =
+                                    ZIndex: =4
+
+                                Container8_43 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =18
+                                    Y: =12
+                                    ZIndex: =5
+
+                                    Container9_43 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_46.Height+Container5_43.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_46 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: ='Coût Carburant Consommé_DataCard1_2'.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_43 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank('Coût Carburant Consommé_DataCard1_2'.Error),'Coût Carburant Consommé_DataCard1_2'.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =373
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue27_2 As text:
+                                                BorderColor: =If(IsBlank('Coût Carburant Consommé_DataCard1_2'.Error), Parent.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =0
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: ='Coût Carburant Consommé_DataCard1_2'.Default
+                                                DelayOutput: =true
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                Format: =TextFormat.Number
+                                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                                HoverColor: =RGBA(50, 49, 48, 1)
+                                                HoverFill: =RGBA(255, 255, 255, 1)
+                                                PaddingLeft: =5
+                                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                                PressedColor: =RGBA(50, 49, 48, 1)
+                                                PressedFill: =RGBA(255, 255, 255, 1)
+                                                RadiusBottomLeft: =0
+                                                RadiusBottomRight: =0
+                                                RadiusTopLeft: =0
+                                                RadiusTopRight: =0
+                                                Size: =13
+                                                Tooltip: ='Coût Carburant Consommé_DataCard1_2'.DisplayName
+                                                Width: =Parent.Width - 60
+                                                X: =30
+                                                ZIndex: =1
+
+                                        Rectangle3_43 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank('Coût Carburant Consommé_DataCard1_2'.Error),'Coût Carburant Consommé_DataCard1_2'.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_46 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: ='Coût Carburant Consommé_DataCard1_2'.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_43.Y + Container5_43.Height
+                                        ZIndex: =2
+
+                            "'Date première mise en circulation_DataCard1_1' As typedDataCard.dateEditCard":
+                                BorderColor: =RGBA(208, 25, 119, 0.8)
+                                BorderStyle: =BorderStyle.Solid
+                                DataField: ="Vente_x0020_DS"
+                                Default: =ThisItem.'Vente DS'
+                                DisplayMode: =Parent.DisplayMode
+                                DisplayName: =DataSourceInfo([@Client],DataSourceInfo.DisplayName,"Vente_x0020_DS")
+                                Fill: =RGBA(0, 0, 0, 0)
+                                Height: =159
+                                Required: =false
+                                Update: =DataCardValue27_3.Text
+                                Width: =405
+                                WidthFit: =true
+                                X: =0
+                                Y: =4
+                                ZIndex: =1
+
+                                StarVisible28_1 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =RGBA(50, 49, 48, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(161, 159, 157, 1)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =
+                                    PaddingLeft: =0
+                                    Size: =13
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Wrap: =false
+                                    Y: =
+                                    ZIndex: =4
+
+                                Container8_44 As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Height: =109
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =375
+                                    X: =18
+                                    Y: =18
+                                    ZIndex: =5
+
+                                    Container9_44 As groupContainer.verticalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =Self.PaddingBottom+Self.PaddingTop+DataCardKey8_47.Height+Container5_44.Height
+                                        LayoutDirection: =LayoutDirection.Vertical
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =10
+                                        RadiusBottomRight: =10
+                                        RadiusTopLeft: =10
+                                        RadiusTopRight: =10
+                                        ZIndex: =1
+
+                                        DataCardKey8_47 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            Color: =RGBA(50, 49, 48, 1)
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisabledColor: =RGBA(161, 159, 157, 1)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.Lato
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =34
+                                            PaddingLeft: =0
+                                            Size: =13
+                                            Text: ='Date première mise en circulation_DataCard1_1'.DisplayName
+                                            Width: =Parent.Width - 60
+                                            Wrap: =false
+                                            X: =30
+                                            Y: =10
+                                            ZIndex: =1
+
+                                        Container5_44 As groupContainer.manualLayoutContainer:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            BorderColor: =If(IsBlank('Date première mise en circulation_DataCard1_1'.Error),'Date première mise en circulation_DataCard1_1'.BorderColor, Color.Red)
+                                            BorderStyle: =BorderStyle.None
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            FillPortions: =0
+                                            Height: =40
+                                            LayoutMinHeight: =100
+                                            LayoutMinWidth: =250
+                                            Width: =340
+                                            X: =30
+                                            Y: =36
+                                            ZIndex: =2
+
+                                            DataCardValue27_3 As text:
+                                                BorderColor: =If(IsBlank('Coût Carburant Consommé_DataCard1_2'.Error), Parent.BorderColor, Color.Red)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =0
+                                                Color: =RGBA(50, 49, 48, 1)
+                                                Default: ='Coût Carburant Consommé_DataCard1_2'.Default
+                                                DelayOutput: =true
+                                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                                DisplayMode: =Parent.DisplayMode
+                                                FocusedBorderThickness: =4
+                                                Font: =Font.'Segoe UI'
+                                                Format: =TextFormat.Number
+                                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                                HoverColor: =RGBA(50, 49, 48, 1)
+                                                HoverFill: =RGBA(255, 255, 255, 1)
+                                                PaddingLeft: =5
+                                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                                PressedColor: =RGBA(50, 49, 48, 1)
+                                                PressedFill: =RGBA(255, 255, 255, 1)
+                                                RadiusBottomLeft: =0
+                                                RadiusBottomRight: =0
+                                                RadiusTopLeft: =0
+                                                RadiusTopRight: =0
+                                                Size: =13
+                                                Tooltip: ='Coût Carburant Consommé_DataCard1_2'.DisplayName
+                                                Width: =Parent.Width - 60
+                                                X: =27
+                                                ZIndex: =1
+
+                                        Rectangle3_44 As rectangle:
+                                            AlignInContainer: =AlignInContainer.Stretch
+                                            BorderColor: =RGBA(0, 0, 0, 0)
+                                            BorderStyle: =BorderStyle.None
+                                            BorderThickness: =2
+                                            DisabledFill: =RGBA(161, 159, 157, 1)
+                                            Fill: =If(IsBlank('Date première mise en circulation_DataCard1_1'.Error),'Date première mise en circulation_DataCard1_1'.BorderColor, Color.Red)
+                                            FocusedBorderThickness: =4
+                                            Height: =1
+                                            HoverFill: =RGBA(0, 120, 212, 1)
+                                            LayoutMinWidth: =0
+                                            PressedFill: =RGBA(0, 120, 212, 1)
+                                            ZIndex: =3
+
+                                    ErrorMessage8_47 As label:
+                                        AutoHeight: =true
+                                        BorderColor: =RGBA(0, 0, 0, 0)
+                                        BorderStyle: =BorderStyle.None
+                                        BorderThickness: =2
+                                        Color: =RGBA(168, 0, 0, 1)
+                                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                        DisabledColor: =RGBA(168, 0, 0, 1)
+                                        FocusedBorderThickness: =4
+                                        Font: =Font.'Segoe UI'
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Size: =10
+                                        Text: ='Date première mise en circulation_DataCard1_1'.Error 
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =Container5_44.Y + Container5_44.Height
+                                        ZIndex: =2
+
+                DeleteConfirmDialogContainer1_7 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =7
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =If(deleteMode, true, false)
+                    Width: =0
+                    ZIndex: =24
+
+                    ConfirmDeletionLabel1_7 As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        FillPortions: =1
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        Size: =13
+                        Text: ="Voulez-vous vraiment supprimer cet enregistrement ?"
+                        ZIndex: =25
+
+                    ConfirmDeleteButtonBarContainer1_7 As groupContainer.horizontalAutoLayoutContainer:
+                        LayoutGap: =15
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        LayoutWrap: =true
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =26
+
+                        CancelDeleteButton1_7 As button:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(161, 159, 157, 1)
+                            DisabledFill: =RGBA(242, 242, 241, 0)
+                            Fill: |+
+                                =RGBA(208, 25, 119, 0.8)
+                                
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(RGBA(208, 25, 119, 0.8),-20%)
+                            OnSelect: |-
+                                =UpdateContext({ deleteMode: false, deleteCancelled: true })
+                            PressedBorderColor: =RGBA(0, 69, 120, 1)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =ColorFade(RGBA(208, 25, 119, 0.8),-20%)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =15
+                            Text: ="Annuler"
+                            ZIndex: =27
+
+                        ConfirmDeleteButton1_7 As button:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(161, 159, 157, 1)
+                            DisabledFill: =RGBA(242, 242, 241, 0)
+                            Fill: =RGBA(208, 25, 119, 0.8)
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(RGBA(208, 25, 119, 0.8),-20%)
+                            OnSelect: |-
+                                =Remove([@Client], selectedRecord); If(IsEmpty(Errors([@Client], selectedRecord)), UpdateContext( { CurrentItem: First([@Client]), itemSelected: false, editMode: false, newMode: false, deleteMode: false }));
+                            PressedBorderColor: =RGBA(0, 69, 120, 1)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =ColorFade(RGBA(208, 25, 119, 0.8),-20%)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =15
+                            Text: ="Supprimer"
+                            ZIndex: =28
+

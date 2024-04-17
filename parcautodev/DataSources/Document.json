@@ -1,0 +1,37 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2024-03-27T20:57:43.3640000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "Catégorie": "Catégorie",
+      "Code_x0020_Vignette": "Code Vignette",
+      "Date_x0020_Début_x0020_Validité": "Date Début Validité",
+      "Date_x0020_Document": "Date Document",
+      "Date_x0020_Fin_x0020_Validité": "Date Fin Validité",
+      "Date_x0020_Visite": "Date Visite",
+      "Libellé": "Libellé",
+      "Montant_x0020_FPCSR": "Montant FPCSR",
+      "Montant_x0020_T_x002e_F": "Montant T.F",
+      "No_x0020_Cert_x002e__x0020_Visite": "No Cert. Visite",
+      "No_x0020_Chassis": "No Chassis",
+      "No_x0020_d_x0027_ordre": "No d'ordre",
+      "No_x0020_Document": "No Document",
+      "No_x0020_Im_x002e_": "No Im.",
+      "No_x0020_Police": "No Police",
+      "No_x0020_vehicule": "No vehicule",
+      "Tarif": "Tarif",
+      "Type_x0020_Alerte": "Type Alerte",
+      "Valider": "Valider"
+    },
+    "DatasetName": "DYNAMIX10%5cBCDEMO,DBC23A",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Document",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

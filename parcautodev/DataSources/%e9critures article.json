@@ -1,0 +1,34 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2024-03-27T20:57:43.3640000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "Code_x0020_emplacement": "Code emplacement",
+      "Code_x0020_Magasin": "Code Magasin",
+      "Code_x0020_Unité": "Code Unité",
+      "Cout_x0020_unitaire": "Cout unitaire",
+      "Date_x0020_comptabilisation": "Date comptabilisation",
+      "Description": "Description",
+      "Montant": "Montant",
+      "Montant_x0020_Remise": "Montant Remise",
+      "Montant_x0020_Unitaire": "Montant Unitaire",
+      "N_x0020_Document": "N Document",
+      "No_x0020_article": "No article",
+      "No_x0020_ligne": "No ligne",
+      "No_x0020_Véhicule": "No Véhicule",
+      "Nom_x0020_Feuille": "Nom Feuille",
+      "Quantité": "Quantité",
+      "Type_x0020_écriture": "Type écriture"
+    },
+    "DatasetName": "DYNAMIX10%5cBCDEMO,DBC23A",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "écritures article",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

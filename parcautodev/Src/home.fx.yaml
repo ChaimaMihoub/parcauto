@@ -1,0 +1,35 @@
+home As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Container1_9 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container7_8 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =menu_12.Width
+            ZIndex: =1
+
+            menu_12 As menu_2:
+                BseColorText: =//"rgba(115,131,176,1)"
+                Height: =Parent.Height
+                logo_compact: =//'logo-dynamix2'
+                logo_padding: = If(menu_12.MenuExpended,19%,19%)
+                logoExpended: =//'logo-dynamix-full'
+                menuContent: =CustomNavigation
+                Width: =If(menu_12.MenuExpended,150,70)
+
